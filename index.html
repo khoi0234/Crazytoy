@@ -17,8 +17,7 @@
                         brand: {
                             gold: '#f59e0b',
                             dark: '#0f172a',
-                            card: '#1e293b',
-                            accent: '#38bdf8'
+                            card: '#1e293b'
                         }
                     }
                 }
@@ -26,8 +25,6 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass-panel {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
@@ -37,162 +34,62 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 relative overflow-x-hidden">
 
-    <!-- THANH NHẠC NỀN SOUNDCLOUD THU GỌN -->
-<div class="fixed bottom-4 right-4 z-50 glass-panel px-3 py-2 rounded-2xl flex items-center space-x-2 shadow-2xl border border-brand-gold/40 bg-slate-900/90">
-    <div class="text-brand-gold text-sm animate-pulse">
-        <i class="fa-solid fa-music"></i>
-    </div>
-    <div class="text-[10px] text-slate-300 font-medium">
-        <span>Ngày Còn Đôi Mươi</span>
-    </div>
-    <!-- Khung phát ngầm thu nhỏ -->
-    <div class="w-24 h-6 overflow-hidden rounded opacity-80 hover:opacity-100 transition">
-        <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/xN46dErlinFQ95DNt6&color=%23f59e0b&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
-    </div>
-</div>
-
-
-    <!-- NÚT BẬT/TẮT NHẠC NỔI GÓC MÀN HÌNH -->
-    <button onclick="toggleMusic()" id="musicBtn" class="fixed top-4 right-4 z-50 glass-panel px-4 py-2 rounded-full text-brand-gold flex items-center space-x-2 shadow-lg hover:bg-slate-800 transition">
-        <i id="musicIcon" class="fa-solid fa-music animate-bounce"></i>
-        <span id="musicText" class="text-xs font-semibold">Bật Nhạc Chill</span>
-    </button>
-
-    <!-- KHUNG NỘI DUNG CHÍNH -->
-    <main class="w-full max-w-xl mx-auto space-y-6 my-auto">
-        
-        <!-- HEADER THƯƠNG HIỆU -->
-        <div class="text-center space-y-2">
-            <div class="inline-block p-3 rounded-2xl glass-panel text-brand-gold shadow-xl mb-1">
-                <i class="fa-solid fa-cube text-3xl"></i>
-            </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-wider bg-gradient-to-r from-amber-400 via-orange-500 to-amber-200 bg-clip-text text-transparent">
-                CRAZY TOY
-            </h1>
-            <p class="text-xs sm:text-sm text-slate-400 italic">"Biến ý tưởng thành hiện thực</p>
+    <!-- HEADER / LOGO THƯƠNG HIỆU -->
+    <header class="w-full max-w-md flex flex-col items-center text-center space-y-2 mt-2">
+        <div class="w-14 h-14 rounded-2xl glass-panel flex items-center justify-center text-brand-gold shadow-lg shadow-brand-gold/10">
+            <i class="fa-solid fa-cube text-2xl"></i>
         </div>
+        <h1 class="text-2xl font-black tracking-wider text-brand-gold uppercase">CRAZY TOY</h1>
+        <p class="text-xs text-slate-400 italic">"Biến ý tưởng thành hiện thực độc bản"</p>
+    </header>
 
-        <!-- THẺ GIẤY KHAI SINH ĐIỆN TỬ (CERTIFICATE) -->
-        <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-2xl relative border-t-2 border-brand-gold space-y-6">
+    <!-- NỘI DUNG CHÍNH: GIẤY KHAI SINH ĐIỆN TỬ 1/1 -->
+    <main class="w-full max-w-md my-6 space-y-4">
+        <div class="glass-panel p-5 rounded-3xl relative overflow-hidden shadow-2xl space-y-4">
             
-            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-gold text-slate-950 text-[10px] font-extrabold px-4 py-1 rounded-full uppercase tracking-widest shadow">
-                Độc Bản 1/1 (Certificate of Authenticity)
+            <!-- Huy hiệu độc bản -->
+            <div class="flex justify-center">
+                <span class="px-4 py-1.5 rounded-full bg-brand-gold/20 text-brand-gold text-xs font-bold tracking-widest border border-brand-gold/30 uppercase">
+                    Độc Bản 1/1 (Certificate of Authenticity)
+                </span>
             </div>
 
-            <!-- HÌNH ẢNH SẢN PHẨM -->
-            <div class="relative rounded-2xl overflow-hidden shadow-lg border border-slate-700 aspect-video bg-slate-900">
-                <img id="prodImg" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Mô hình in 3D" class="w-full h-full object-cover">
-                <div class="absolute bottom-2 right-2 bg-slate-900/80 backdrop-blur px-3 py-1 rounded-lg text-xs text-brand-gold font-mono" id="prodId">
-                    ID: CT-DRAGON-01
+            <!-- Hình ảnh sản phẩm -->
+            <div class="w-full h-48 rounded-2xl overflow-hidden shadow-md relative border border-slate-700">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Mô hình độc bản" class="w-full h-full object-cover">
+                <div class="absolute bottom-2 right-2 bg-slate-900/80 px-3 py-1 rounded-lg text-xs font-mono text-brand-gold border border-brand-gold/30">
+                    ID: DRAGON01
                 </div>
             </div>
 
-            <!-- TÊN VÀ THÔNG TIN MÔ HÌNH -->
-            <div class="text-center space-y-2">
-                <h2 id="prodName" class="text-xl sm:text-2xl font-bold text-white">Rồng Thần Kim Giáp Độc Bản</h2>
-                <p id="prodDesc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Tác phẩm mô hình khớp động in 3D thủ công cao cấp. Được chế tác tỉ mỉ từng đường nét, sơn phủ bảo vệ độc quyền bởi xưởng Crazy Toy.
+            <!-- Tên sản phẩm & Mô tả -->
+            <div class="text-center space-y-1">
+                <h2 class="text-xl font-bold text-white">Rồng Thần Kim Giáp Độc Bản (1/1)</h2>
+                <p class="text-xs text-slate-300 leading-relaxed px-2">
+                    Mô hình rồng khớp động linh hoạt, in 3D tinh xảo từng lớp nhựa, đánh bóng và sơn màu thủ công tỉ mỉ.
                 </p>
             </div>
 
-            <!-- THÔNG SỐ KỸ THUẬT (GRID) -->
-            <div class="grid grid-cols-2 gap-3 text-xs pt-2 border-t border-slate-700/60">
-                <div class="glass-panel p-3 rounded-xl space-y-1">
-                    <span class="text-slate-400 block"><i class="fa-solid fa-calendar-days text-brand-gold mr-1"></i> Ngày Xuất Xưởng</span>
-                    <strong id="prodDate" class="text-slate-200">20/11/2026</strong>
+            <!-- Thông số kỹ thuật -->
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="glass-panel p-3 rounded-2xl flex flex-col justify-center">
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-calendar text-brand-gold mr-1"></i> Ngày Xuất Xưởng</span>
+                    <span class="text-sm font-semibold text-white mt-1">20/11/2026</span>
                 </div>
-                <div class="glass-panel p-3 rounded-xl space-y-1">
-                    <span class="text-slate-400 block"><i class="fa-solid fa-gears text-brand-gold mr-1"></i> Chất Liệu & Xử Lý</span>
-                    <strong id="prodMaterial" class="text-slate-200">Nhựa PLA+ / Sơn Thủ Công</strong>
+                <div class="glass-panel p-3 rounded-2xl flex flex-col justify-center">
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-gears text-brand-gold mr-1"></i> Chất Liệu & Xử Lý</span>
+                    <span class="text-sm font-semibold text-white mt-1">PLA+ Cao Cấp / Sơn Metallic</span>
                 </div>
-            </div>
-
-        </div>
-
-        <!-- KHUNG VIDEO YOUTUBE QUÁ TRÌNH SẢN XUẤT -->
-        <div class="glass-panel rounded-3xl p-4 sm:p-6 space-y-3">
-            <h3 class="text-sm font-bold text-brand-gold flex items-center">
-                <i class="fa-brands fa-youtube text-red-500 text-lg mr-2"></i> Nhật Ký Sản Xuất (Quá trình In 3D)
-            </h3>
-            <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow border border-slate-700">
-                <iframe id="prodVideo" class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- CÁC NÚT LIÊN KẾT CỬA HÀNG (SẼ BỔ SUNG SAU) -->
-        <div class="space-y-2">
-            <a href="https://shopee.vn" target="_blank" class="w-full py-3 px-4 rounded-xl glass-panel text-center font-semibold text-sm flex items-center justify-center space-x-2 hover:bg-slate-800 transition border-amber-500/30 text-amber-400">
-                <i class="fa-solid fa-store"></i>
-                <span>Ghé Thăm Cửa Hàng Crazy Toy</span>
-            </a>
+        <!-- NHẬT KÝ SẢN XUẤT (VIDEO YOUTUBE) -->
+        <div class="glass-panel p-4 rounded-3xl space-y-3">
+            <div class="flex items-center space-x-2 text-xs font-bold text-brand-gold uppercase tracking-wider">
+                <i class="fa-solid fa-video"></i>
+                <span>Nhật Ký Sản Xuất (Quá trình In 3D)</span>
+            </div>
+            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-slate-700">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Quá trình chế tác" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="mt-8 text-center text-xs text-slate-500 space-y-1">
-        <p>© 2026 Crazy Toy Vietnam. All rights reserved.</p>
-        <p class="text-[10px] text-slate-600">Được bảo vệ bằng chip NFC chính hãng độc quyền.</p>
-    </footer>
-
-    <!-- SCRIPT TÙY CHỈNH DỮ LIỆU ĐỘC BẢN THEO URL -->
-    <script>
-        // Cơ sở dữ liệu mẫu cho các sản phẩm độc bản khác nhau
-        const database = {
-            "dragon01": {
-                name: "Rồng Thần Kim Giáp Độc Bản (1/1)",
-                desc: "Mô hình rồng khớp động linh hoạt, in 3D tinh xảo từng lớp nhựa, đánh bóng và sơn màu thủ công tỉ mỉ.",
-                img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
-                date: "20/11/2026",
-                material: "PLA+ Cao cấp / Sơn Metallic",
-                video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Thay link youtube sản xuất thực tế vào đây
-            },
-            "skeleton02": {
-                name: "Bộ Xương Linh Hoạt Articulated Skeleton",
-                desc: "Mô hình đồ chơi giải trí cử động đa khớp độc quyền từ xưởng Crazy Toy, thành quả của 18 tiếng in liên tục.",
-                img: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800&auto=format&fit=crop",
-                date: "22/11/2026",
-                material: "PETG Bền Bỉ / Khớp Lò Xo",
-                video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-            }
-        };
-
-        // Lấy mã sản phẩm từ đường dẫn (Ví dụ: tenmien.com/?item=skeleton02)
-        const urlParams = new URLSearchParams(window.location.search);
-        const itemId = urlParams.get('item') || 'dragon01'; // Mặc định là dragon01 nếu không có tham số
-
-        // Cập nhật thông tin lên trang web nếu tồn tại trong database
-        if (database[itemId]) {
-            const data = database[itemId];
-            document.getElementById('prodName').innerText = data.name;
-            document.getElementById('prodDesc').innerText = data.desc;
-            document.getElementById('prodImg').src = data.img;
-            document.getElementById('prodDate').innerText = data.date;
-            document.getElementById('prodMaterial').innerText = data.material;
-            document.getElementById('prodVideo').src = data.video;
-            document.getElementById('prodId').innerText = "ID: " + itemId.toUpperCase();
-        }
-
-        // Xử lý bật/tắt nhạc nền Lofi
-        let isPlaying = false;
-        const bgMusic = document.getElementById('bgMusic');
-        const musicIcon = document.getElementById('musicIcon');
-        const musicText = document.getElementById('musicText');
-
-        function toggleMusic() {
-            if (!isPlaying) {
-                bgMusic.play();
-                isPlaying = true;
-                musicIcon.className = "fa-solid fa-volume-high text-emerald-400 animate-pulse";
-                musicText.innerText = "Đang Phát Nhạc";
-            } else {
-                bgMusic.pause();
-                isPlaying = false;
-                musicIcon.className = "fa-solid fa-music";
-                musicText.innerText = "Bật Nhạc Chill";
-            }
-        }
-    </script>
-</body>
-</html>
-
