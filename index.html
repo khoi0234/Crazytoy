@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giấy Chứng Nhận Độc Bản - Crazy Toy</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -26,109 +24,170 @@
     </script>
     <style>
         .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(30, 41, 59, 0.75);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+        @keyframes shine {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .gold-shimmer {
+            background: linear-gradient(90deg, #f59e0b 0%, #fef08a 50%, #f59e0b 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 relative overflow-x-hidden">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between p-4 sm:p-6">
 
-    <!-- HEADER / LOGO THƯƠNG HIỆU -->
+    <!-- HEADER: LOGO BẤM VÀO SẼ VỀ STORE.HTML -->
     <header class="w-full max-w-md flex flex-col items-center text-center space-y-2 mt-2">
-       <a href="store.html" class="block group">
-    <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center overflow-hidden shadow-lg shadow-brand-gold/20 border border-brand-gold/40 transition group-hover:scale-105">
-        <img src="1000011222-removebg-preview (1).png" alt="Logo Crazy Toy" class="w-full h-full object-cover">
-    </div>
-</a>
-
-
-
-
-        <h1 class="text-2xl font-black tracking-wider text-brand-gold uppercase">CRAZY TOY</h1>
-        <p class="text-xs text-slate-400 italic">"Biến ý tưởng thành hiện thực độc bản"</p>
+        <a href="store.html" class="block group" title="Ghé thăm cửa hàng Crazy Toy">
+            <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center overflow-hidden shadow-lg shadow-brand-gold/20 border border-brand-gold/40 transition group-hover:scale-105">
+                <img src="logo.png" alt="Logo Crazy Toy" class="w-full h-full object-cover">
+            </div>
+        </a>
+        <div>
+            <h1 class="text-xl font-black tracking-widest gold-shimmer uppercase">CRAZY TOY</h1>
+            <p class="text-[11px] text-slate-400">Chạm vào logo để ghé cửa hàng độc bản</p>
+        </div>
     </header>
 
-    <!-- NỘI DUNG CHÍNH: GIẤY KHAI SINH ĐIỆN TỬ 1/1 -->
-    <main class="w-full max-w-md my-6 space-y-4">
-        <div class="glass-panel p-5 rounded-3xl relative overflow-hidden shadow-2xl space-y-4">
-            
-            <!-- Huy hiệu độc bản -->
-            <div class="flex justify-center">
-                <span class="px-4 py-1.5 rounded-full bg-brand-gold/20 text-brand-gold text-xs font-bold tracking-widest border border-brand-gold/30 uppercase">
-                    Độc Bản 1/1 (Certificate of Authenticity)
-                </span>
+    <!-- NỘI DUNG CHÍNH -->
+    <main class="w-full max-w-md my-5 space-y-4">
+
+        <!-- Ô TRA CỨU MÃ SERI -->
+        <section class="glass-panel p-4 rounded-3xl space-y-2.5 border border-brand-gold/30 shadow-lg">
+            <label class="block text-[11px] font-bold text-brand-gold uppercase tracking-wider">
+                <i class="fa-solid fa-magnifying-glass mr-1"></i> Tra Cứu Mã Định Danh (Seri)
+            </label>
+            <div class="flex space-x-2">
+                <input type="text" id="serialInput" placeholder="Nhập mã (VD: CT001)..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white uppercase font-mono focus:border-brand-gold outline-none">
+                <button onclick="lookupSerial()" class="px-4 py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition">
+                    Kiểm Tra
+                </button>
+            </div>
+            <p id="errorMsg" class="hidden text-[11px] text-rose-400 font-medium">
+                <i class="fa-solid fa-circle-exclamation"></i> Không tìm thấy mã seri này. Vui lòng kiểm tra lại!
+            </p>
+        </section>
+
+        <!-- KHUNG GIẤY CHỨNG NHẬN ĐỘC BẢN -->
+        <section id="certCard" class="glass-panel p-6 rounded-3xl space-y-5 border border-brand-gold/40 shadow-2xl relative overflow-hidden">
+            <div class="text-center space-y-1 border-b border-slate-700/80 pb-4">
+                <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span>Đã Xác Thực Chính Hãng</span>
+                </div>
+                <h2 class="text-lg font-black text-white uppercase tracking-wide">Giấy Khai Sinh Độc Bản</h2>
+                <p id="certSerial" class="text-xs font-mono text-brand-gold font-bold">MÃ SERI: #CT001</p>
             </div>
 
-            <!-- Hình ảnh sản phẩm -->
-            <div class="w-full h-48 rounded-2xl overflow-hidden shadow-md relative border border-slate-700">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Mô hình độc bản" class="w-full h-full object-cover">
-                <div class="absolute bottom-2 right-2 bg-slate-900/80 px-3 py-1 rounded-lg text-xs font-mono text-brand-gold border border-brand-gold/30">
-                    ID: DRAGON01
+            <!-- ẢNH SẢN PHẨM -->
+            <div class="w-full h-48 rounded-2xl overflow-hidden border border-slate-700 relative">
+                <img id="certImage" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Mô hình độc bản" class="w-full h-full object-cover">
+                <div id="certEdition" class="absolute bottom-2 right-2 bg-slate-950/90 px-2.5 py-1 rounded-lg text-[11px] font-black text-brand-gold border border-brand-gold/40">
+                    BẢN GIỚI HẠN 1/1
                 </div>
             </div>
 
-            <!-- Tên sản phẩm & Mô tả -->
-            <div class="text-center space-y-1">
-                <h2 class="text-xl font-bold text-white">Rồng Thần Kim Giáp Độc Bản (1/1)</h2>
-                <p class="text-xs text-slate-300 leading-relaxed px-2">
-                    Mô hình rồng khớp động linh hoạt, in 3D tinh xảo từng lớp nhựa, đánh bóng và sơn màu thủ công tỉ mỉ.
-                </p>
+            <!-- CHI TIẾT THÔNG SỐ -->
+            <div class="space-y-2.5 text-xs">
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Tên Tác Phẩm:</span>
+                    <span id="certName" class="font-bold text-white text-right">Rồng Thần Kim Giáp</span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Ngày Xuất Xưởng:</span>
+                    <span id="certDate" class="font-semibold text-slate-200">12/11/2026</span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Chất Liệu & Hoàn Thiện:</span>
+                    <span id="certMaterial" class="font-semibold text-slate-200 text-right">Nhựa cao cấp, sơn thủ công</span>
+                </div>
+                <div class="flex justify-between py-1.5">
+                    <span class="text-slate-400">Chế Tác Bởi:</span>
+                    <span class="font-bold text-brand-gold">Crazy Toy Studio (Đà Nẵng)</span>
+                </div>
             </div>
 
-            <!-- Thông số kỹ thuật -->
-            <div class="grid grid-cols-2 gap-3 pt-2">
-                <div class="glass-panel p-3 rounded-2xl flex flex-col justify-center">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-calendar text-brand-gold mr-1"></i> Ngày Xuất Xưởng</span>
-                    <span class="text-sm font-semibold text-white mt-1">20/11/2026</span>
-                </div>
-                <div class="glass-panel p-3 rounded-2xl flex flex-col justify-center">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-wider"><i class="fa-solid fa-gears text-brand-gold mr-1"></i> Chất Liệu & Xử Lý</span>
-                    <span class="text-sm font-semibold text-white mt-1">PLA+ Cao Cấp / Sơn Metallic</span>
-                </div>
-            </div>
-        </div>
+            <!-- NÚT CHUYỂN SANG CỬA HÀNG -->
+            <a href="store.html" class="w-full py-3 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2 shadow-lg">
+                <i class="fa-solid fa-store"></i>
+                <span>Khám Phá Thêm Tác Phẩm Khác</span>
+            </a>
+        </section>
 
-        <!-- NHẬT KÝ SẢN XUẤT (VIDEO YOUTUBE) -->
-        <div class="glass-panel p-4 rounded-3xl space-y-3">
-            <div class="flex items-center space-x-2 text-xs font-bold text-brand-gold uppercase tracking-wider">
-                <i class="fa-solid fa-video"></i>
-                <span>Nhật Ký Sản Xuất (Quá trình In 3D)</span>
-            </div>
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-slate-700">
-                <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Quá trình chế tác" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
     </main>
 
-    <!-- FOOTER / BẢN QUYỀN -->
-    <footer class="w-full max-w-md text-center py-2 text-[10px] text-slate-500">
-        &copy; 2026 Crazy Toy Vietnam. All rights reserved.
+    <!-- FOOTER -->
+    <footer class="w-full max-w-md text-center py-3 text-[10px] text-slate-500">
+        &copy; 2026 Crazy Toy Vietnam. Verified by NFC Technology.
     </footer>
 
-    <!-- SCRIPT ĐIỀU KHIỂN ÂM THANH -->
+    <!-- KHO DỮ LIỆU MÃ SERI (ANH THÊM SẢN PHẨM MỚI TẠI ĐÂY) -->
     <script>
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-        const musicText = document.getElementById('musicText');
-        const musicIcon = document.getElementById('musicIcon');
-        let isPlaying = false;
-
-        function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                musicText.innerText = "Bật Nhạc Chill";
-                musicIcon.className = "fa-solid fa-music animate-bounce";
-            } else {
-                music.play().then(() => {
-                    musicText.innerText = "Đang Phát Nhạc";
-                    musicIcon.className = "fa-solid fa-volume-high animate-pulse";
-                }).catch(e => {
-                    console.log("Trình duyệt chặn autoplay:", e);
-                });
+        const toyDatabase = {
+            "CT001": {
+                name: "Rồng Thần Kim Giáp",
+                edition: "ĐỘC BẢN 1/1",
+                date: "12/11/2026",
+                material: "PLA+ & Sơn Acrylic thủ công",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
+            },
+            "CT002": {
+                name: "Cyber Mecha Warrior",
+                edition: "PHIÊN BẢN 02/10",
+                date: "15/11/2026",
+                material: "PETG & Phủ bóng bảo vệ",
+                image: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop"
+            },
+            "CT003": {
+                name: "Móc Khóa Linh Vật Mini",
+                edition: "CUSTOM THEO YÊU CẦU",
+                date: "20/11/2026",
+                material: "Nhựa in 3D đa sắc",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
             }
-            isPlaying = !isPlaying;
+        };
+
+        function displayCertificate(code) {
+            const cleanCode = code.trim().toUpperCase();
+            const item = toyDatabase[cleanCode];
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (item) {
+                errorMsg.classList.add('hidden');
+                document.getElementById('certSerial').innerText = "MÃ SERI: #" + cleanCode;
+                document.getElementById('certName').innerText = item.name;
+                document.getElementById('certEdition').innerText = item.edition;
+                document.getElementById('certDate').innerText = item.date;
+                document.getElementById('certMaterial').innerText = item.material;
+                document.getElementById('certImage').src = item.image;
+                document.getElementById('serialInput').value = cleanCode;
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
         }
+
+        function lookupSerial() {
+            const inputVal = document.getElementById('serialInput').value;
+            if (inputVal) {
+                displayCertificate(inputVal);
+            }
+        }
+
+        // Tự động đọc tham số ?id= trên đường link khi quét thẻ NFC
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const idFromUrl = urlParams.get('id');
+            if (idFromUrl) {
+                displayCertificate(idFromUrl);
+            }
+        };
     </script>
 </body>
 </html>
