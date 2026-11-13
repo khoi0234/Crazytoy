@@ -192,4 +192,87 @@
                 </div>
 
                 <!-- NÚT GỬI ĐƠN -->
-                <button type="submit" class="w-full py
+                <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>Xác Nhận & Hiện Mã QR Thanh Toán</span>
+                </button>
+            </form>
+
+            <!-- KHUNG HIỂN THỊ VIETQR -->
+            <div id="qrContainer" class="hidden pt-3 border-t border-slate-700 text-center space-y-3">
+                <div class="p-2 bg-brand-gold/10 rounded-xl border border-brand-gold/20 text-xs text-brand-gold font-semibold">
+                    Quét mã QR bên dưới bằng app ngân hàng để thanh toán đơn hàng:
+                </div>
+                <div class="inline-block p-2 bg-white rounded-2xl shadow-xl">
+                    <img id="vietQrImg" src="" alt="VietQR Thanh Toán" class="w-48 h-48 mx-auto rounded-lg">
+                </div>
+                <p id="qrInfo" class="text-[11px] text-slate-300 font-mono"></p>
+                <div class="text-[10px] text-emerald-400 font-bold">
+                    <i class="fa-solid fa-circle-check"></i> Đã ghi nhận thông tin đơn hàng của bạn! Chúng tôi sẽ liên hệ sớm nhất.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full max-w-md text-center py-4 text-[10px] text-slate-500">
+        &copy; 2026 Crazy Toy Vietnam. All rights reserved.
+    </footer>
+
+    <!-- SCRIPT XỬ LÝ BỘ LỌC & THANH TOÁN -->
+    <script>
+        // Chức năng lọc sản phẩm theo danh mục
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Cập nhật trạng thái nút bấm active
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-gold', 'text-slate-950', 'font-bold');
+                btn.classList.add('glass-panel', 'text-slate-300', 'font-semibold');
+            });
+            event.target.classList.remove('glass-panel', 'text-slate-300', 'font-semibold');
+            event.target.classList.add('bg-brand-gold', 'text-slate-950', 'font-bold');
+
+            // Hiển thị/ẩn sản phẩm theo thẻ data-category
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        let selectedPrice = 0;
+
+        function selectProduct(name, price) {
+            document.getElementById('productName').value = name + " (" + price.toLocaleString('vi-VN') + "đ)";
+            selectedPrice = price;
+            document.getElementById('totalPrice').innerText = price.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            if (selectedPrice === 0) {
+                alert('Vui lòng chọn một sản phẩm giới hạn ở bên trên trước khi đặt hàng!');
+                return;
+            }
+
+            const phone = document.getElementById('customerPhone').value;
+            const bankId = "MB"; 
+            const accountNo = "0351234567"; // Thay số tài khoản của bạn vào đây
+            const addInfo = encodeURIComponent("CrazyToy Limited " + phone);
+            
+            const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${selectedPrice}&addInfo=${addInfo}`;
+            
+            document.getElementById('vietQrImg').src = qrUrl;
+            document.getElementById('qrInfo').innerText = `Chủ TK: NGUYỄN VĂN KHÔI | Số tiền: ${selectedPrice.toLocaleString('vi-VN')}đ`;
+            
+            document.getElementById('qrContainer').classList.remove('hidden');
+            document.getElementById('qrContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
