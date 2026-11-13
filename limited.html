@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm Giới Hạn (Limited) - Crazy Toy</title>
+    <title>Sản Phẩm Giới Hạn - Crazy Toy</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -34,122 +34,62 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center p-4 sm:p-6 relative overflow-x-hidden">
 
-    <!-- 1. HEADER / LOGO THƯƠNG HIỆU & MẠNG XÃ HỘI -->
-    <header class="w-full max-w-md flex flex-col items-center text-center space-y-3 mt-2">
-        <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center overflow-hidden shadow-lg shadow-brand-gold/20 border border-brand-gold/40">
-            <img src="logo.png" alt="Logo Crazy Toy" class="w-full h-full object-cover">
-        </div>
-        <div>
-            <h1 class="text-2xl font-black tracking-wider text-brand-gold uppercase">CRAZY TOY</h1>
-            <p class="text-xs text-slate-400 italic">"Biến ý tưởng thành hiện thực"</p>
-        </div>
-
-        <!-- MẠNG XÃ HỘI LIÊN KẾT -->
-        <div class="flex space-x-3 pt-1">
-            <a href="https://zalo.me/" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
-                <i class="fa-solid fa-comment-dots text-sm"></i>
-            </a>
-            <a href="https://tiktok.com/@crazytoy3d" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
-                <i class="fa-brands fa-tiktok text-sm"></i>
-            </a>
-            <a href="https://youtube.com/@crazytoy979?si=ou86a_KBlp9TLrPd" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
-                <i class="fa-brands fa-youtube text-sm"></i>
-            </a>
-            <a href="https://www.facebook.com/share/1UaK466EHG/" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
-                <i class="fa-brands fa-facebook text-sm"></i>
-            </a>
-            <a href="https://shopee.vn/" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
-                <i class="fa-solid fa-bag-shopping text-sm"></i>
-            </a>
+    <!-- HEADER / NÚT VỀ TRANG CHỦ -->
+    <header class="w-full max-w-md flex items-center justify-between mt-2 mb-4">
+        <a href="store.html" class="px-3 py-2 rounded-xl glass-panel text-brand-gold font-bold text-xs flex items-center space-x-1.5 hover:bg-brand-gold/20 transition">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Về Trang Chủ</span>
+        </a>
+        <div class="text-right">
+            <h1 class="text-sm font-black tracking-wider text-brand-gold uppercase">SẢN PHẨM GIỚI HẠN</h1>
+            <span class="text-[10px] bg-red-600/20 text-red-400 px-2 py-0.5 rounded-full font-bold border border-red-500/30">Độc Bản 1/1</span>
         </div>
     </header>
 
-    <!-- NỘI DUNG CHÍNH -->
-    <main class="w-full max-w-md my-6 space-y-6">
+    <!-- NỘI DUNG DANH SÁCH SẢN PHẨM GIỚI HẠN -->
+    <main class="w-full max-w-md space-y-6">
         
-        <!-- THANH MENU CHUYỂN TRANG -->
-        <nav class="flex justify-center space-x-2">
-            <a href="limited.html" class="flex-1 py-2 px-3 rounded-xl bg-brand-gold text-slate-950 text-center text-xs font-black shadow-lg shadow-brand-gold/30 transition">
-                <i class="fa-solid fa-crown mr-1"></i> SP Giới Hạn
-            </a>
-            <a href="products.html" class="flex-1 py-2 px-3 rounded-xl glass-panel text-center text-xs font-bold text-slate-300 hover:bg-brand-gold/20 border border-slate-700 transition">
-                <i class="fa-solid fa-box-open mr-1"></i> SP Thường
-            </a>
-        </nav>
-
-        <!-- LỜI GIỚI THIỆU / THƯ CẢM ƠN -->
-        <section class="glass-panel p-5 rounded-3xl space-y-2 border border-brand-gold/30 shadow-xl">
-            <div class="flex items-center space-x-2 text-brand-gold font-bold text-xs uppercase tracking-wider">
-                <i class="fa-solid fa-gem"></i>
-                <span>Bộ Sưu Tập Độc Bản (Limited Edition)</span>
-            </div>
-            <p class="text-xs text-slate-300 leading-relaxed">
-                Đây là các sản phẩm giới hạn độc quyền 1/1 hoặc số lượng cực ít tại <strong class="text-brand-gold">Crazy Toy</strong>. Mỗi thiết kế đều sở hữu cơ chế khớp độc quyền, chất liệu cao cấp và không tái bản sau khi bán hết.
-            </p>
-        </section>
-
-        <!-- BỘ LỌC SẢN PHẨM -->
-        <section class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs">
-            <span class="text-slate-400 font-semibold whitespace-nowrap"><i class="fa-solid fa-filter mr-1"></i> Lọc:</span>
-            <button onclick="filterProducts('all')" class="filter-btn px-3 py-1.5 rounded-xl bg-brand-gold text-slate-950 font-bold transition whitespace-nowrap">Tất Cả</button>
-            <button onclick="filterProducts('dragon')" class="filter-btn px-3 py-1.5 rounded-xl glass-panel text-slate-300 font-semibold hover:bg-brand-gold/20 transition whitespace-nowrap">Rồng Thần</button>
-            <button onclick="filterProducts('mecha')" class="filter-btn px-3 py-1.5 rounded-xl glass-panel text-slate-300 font-semibold hover:bg-brand-gold/20 transition whitespace-nowrap">Mecha/Robot</button>
-        </section>
-
-        <!-- DANH MỤC SẢN PHẨM GIỚI HẠN -->
-        <section class="space-y-4" id="productList">
-            <div class="flex items-center justify-between px-1 border-b border-brand-gold/20 pb-2">
-                <h2 class="text-sm font-bold text-brand-gold uppercase tracking-wider flex items-center space-x-2">
-                    <i class="fa-solid fa-fire mr-1"></i> Danh Sách Sản Phẩm Limited
-                </h2>
-            </div>
-
-            <!-- Sản phẩm 1 (Loại: dragon) -->
-            <div class="product-card glass-panel p-4 rounded-3xl space-y-3 shadow-lg" data-category="dragon">
-                <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Rồng Thần Kim Giáp" class="w-full h-full object-cover">
-                    <!-- Giá sản phẩm -->
-                    <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30 shadow">
-                        499.000đ
-                    </div>
-                    <!-- Badge số lượng giới hạn và còn lại -->
-                    <div class="absolute bottom-2 left-2 bg-red-600/90 text-white px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider shadow">
-                        🔥 Giới hạn: 5 sản phẩm | <span class="text-amber-200">Còn lại: 2</span>
-                    </div>
+        <!-- Sản phẩm giới hạn 1 -->
+        <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
+            <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Rồng Thần Kim Giáp" class="w-full h-full object-cover">
+                <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
+                    499.000đ
                 </div>
-                <div class="space-y-1">
-                    <h3 class="font-bold text-white text-base">Rồng Thần Kim Giáp (Limited Edition)</h3>
-                    <p class="text-xs text-slate-400">Phiên bản giới hạn mạ vàng thủ công, khớp động linh hoạt toàn thân.</p>
+                <div class="absolute bottom-2 left-2 bg-red-600/90 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                    🔥 Tổng: 5 bản | Còn lại: 2 bản
                 </div>
-                <button onclick="selectProduct('Rồng Thần Kim Giáp (Limited)', 499000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2 shadow-lg">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Đặt Mua Ngay</span>
-                </button>
             </div>
+            <div class="space-y-1">
+                <h3 class="font-bold text-white text-base">Rồng Thần Kim Giáp (Limited)</h3>
+                <p class="text-xs text-slate-400">Phiên bản giới hạn mạ vàng thủ công, khớp động linh hoạt.</p>
+            </div>
+            <button onclick="selectProduct('Rồng Thần Kim Giáp (Limited)', 499000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Đặt Mua Ngay</span>
+            </button>
+        </div>
 
-            <!-- Sản phẩm 2 (Loại: mecha) -->
-            <div class="product-card glass-panel p-4 rounded-3xl space-y-3 shadow-lg" data-category="mecha">
-                <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
-                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop" alt="Cyber Mecha Figurine" class="w-full h-full object-cover">
-                    <!-- Giá sản phẩm -->
-                    <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30 shadow">
-                        799.000đ
-                    </div>
-                    <!-- Badge số lượng giới hạn và còn lại -->
-                    <div class="absolute bottom-2 left-2 bg-red-600/90 text-white px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider shadow">
-                        🔥 Giới hạn: 3 sản phẩm | <span class="text-amber-200">Còn lại: 1 (Sắp hết!)</span>
-                    </div>
+        <!-- Sản phẩm giới hạn 2 -->
+        <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
+            <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
+                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop" alt="Phượng Hoàng Lửa" class="w-full h-full object-cover">
+                <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
+                    550.000đ
                 </div>
-                <div class="space-y-1">
-                    <h3 class="font-bold text-white text-base">Cyber Mecha Prime (Độc Bản 1/1)</h3>
-                    <p class="text-xs text-slate-400">Tượng chiến giáp tương lai độc quyền phối màu theo yêu cầu riêng.</p>
+                <div class="absolute bottom-2 left-2 bg-red-600/90 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                    🔥 Tổng: 3 bản | Còn lại: 1 bản
                 </div>
-                <button onclick="selectProduct('Cyber Mecha Prime (Limited)', 799000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2 shadow-lg">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Đặt Mua Ngay</span>
-                </button>
             </div>
-        </section>
+            <div class="space-y-1">
+                <h3 class="font-bold text-white text-base">Phượng Hoàng Lửa (Limited)</h3>
+                <p class="text-xs text-slate-400">Mô hình phối màu chuyển sắc độc quyền, chi tiết cực khủng.</p>
+            </div>
+            <button onclick="selectProduct('Phượng Hoàng Lửa (Limited)', 550000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Đặt Mua Ngay</span>
+            </button>
+        </div>
 
         <!-- FORM ĐẶT HÀNG & THANH TOÁN -->
         <section id="orderSection" class="glass-panel p-5 rounded-3xl space-y-4 border border-brand-gold/40 shadow-2xl">
@@ -167,48 +107,45 @@
                 <div class="grid grid-cols-2 gap-2">
                     <div>
                         <label class="block text-[11px] font-semibold text-slate-300 mb-1">Họ và Tên:</label>
-                        <input type="text" id="customerName" required placeholder="Nhập tên của bạn" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                        <input type="text" id="customerName" required placeholder="Họ tên của bạn" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
                     </div>
                     <div>
                         <label class="block text-[11px] font-semibold text-slate-300 mb-1">Số Điện Thoại:</label>
-                        <input type="tel" id="customerPhone" required placeholder="Số điện thoại nhận hàng" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                        <input type="tel" id="customerPhone" required placeholder="Số điện thoại" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-[11px] font-semibold text-slate-300 mb-1">Địa Chỉ Nhận Hàng:</label>
-                    <textarea id="customerAddress" required rows="2" placeholder="Số nhà, tên đường, phường/xã, tỉnh/thành phố..." class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none resize-none"></textarea>
+                    <textarea id="customerAddress" required rows="2" placeholder="Số nhà, tên đường, phường/xã..." class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none resize-none"></textarea>
                 </div>
 
                 <div>
-                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Ghi Chú (Màu sơn, yêu cầu riêng):</label>
-                    <input type="text" id="customerNote" placeholder="Ví dụ: Lấy bản số 2..." class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Ghi Chú:</label>
+                    <input type="text" id="customerNote" placeholder="Ví dụ: Giao giờ hành chính..." class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
                 </div>
 
-                <!-- TỔNG TIỀN -->
                 <div class="p-3 rounded-2xl bg-slate-900/80 border border-brand-gold/30 flex justify-between items-center">
                     <span class="text-xs font-semibold text-slate-300">Tổng Thanh Toán:</span>
                     <span id="totalPrice" class="text-base font-black text-brand-gold">0đ</span>
                 </div>
 
-                <!-- NÚT GỬI ĐƠN -->
                 <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition shadow-lg flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-qrcode"></i>
                     <span>Xác Nhận & Hiện Mã QR Thanh Toán</span>
                 </button>
             </form>
 
-            <!-- KHUNG HIỂN THỊ VIETQR -->
             <div id="qrContainer" class="hidden pt-3 border-t border-slate-700 text-center space-y-3">
                 <div class="p-2 bg-brand-gold/10 rounded-xl border border-brand-gold/20 text-xs text-brand-gold font-semibold">
-                    Quét mã QR bên dưới bằng app ngân hàng để thanh toán đơn hàng:
+                    Quét mã QR bằng app ngân hàng để thanh toán:
                 </div>
                 <div class="inline-block p-2 bg-white rounded-2xl shadow-xl">
-                    <img id="vietQrImg" src="" alt="VietQR Thanh Toán" class="w-48 h-48 mx-auto rounded-lg">
+                    <img id="vietQrImg" src="" alt="VietQR" class="w-48 h-48 mx-auto rounded-lg">
                 </div>
                 <p id="qrInfo" class="text-[11px] text-slate-300 font-mono"></p>
                 <div class="text-[10px] text-emerald-400 font-bold">
-                    <i class="fa-solid fa-circle-check"></i> Đã ghi nhận thông tin đơn hàng của bạn! Chúng tôi sẽ liên hệ sớm nhất.
+                    <i class="fa-solid fa-circle-check"></i> Đã lưu đơn hàng vào Google Sheets tự động!
                 </div>
             </div>
         </section>
@@ -219,31 +156,8 @@
         &copy; 2026 Crazy Toy Vietnam. All rights reserved.
     </footer>
 
-    <!-- SCRIPT XỬ LÝ BỘ LỌC & THANH TOÁN -->
+    <!-- SCRIPT CHỌN SẢN PHẨM, TẠO QR VÀ GỬI VỀ GOOGLE SHEETS -->
     <script>
-        // Chức năng lọc sản phẩm theo danh mục
-        function filterProducts(category) {
-            const cards = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Cập nhật trạng thái nút bấm active
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-gold', 'text-slate-950', 'font-bold');
-                btn.classList.add('glass-panel', 'text-slate-300', 'font-semibold');
-            });
-            event.target.classList.remove('glass-panel', 'text-slate-300', 'font-semibold');
-            event.target.classList.add('bg-brand-gold', 'text-slate-950', 'font-bold');
-
-            // Hiển thị/ẩn sản phẩm theo thẻ data-category
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
         let selectedPrice = 0;
 
         function selectProduct(name, price) {
@@ -256,22 +170,52 @@
         function submitOrder(event) {
             event.preventDefault();
             if (selectedPrice === 0) {
-                alert('Vui lòng chọn một sản phẩm giới hạn ở bên trên trước khi đặt hàng!');
+                alert('Vui lòng chọn một sản phẩm ở bên trên trước khi đặt hàng!');
                 return;
             }
 
+            const product = document.getElementById('productName').value;
+            const name = document.getElementById('customerName').value;
             const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+            const note = document.getElementById('customerNote').value;
+            const totalText = selectedPrice.toLocaleString('vi-VN') + 'đ';
+
+            // 1. Tạo và hiển thị mã QR VietQR ngay lập tức
             const bankId = "MB"; 
-            const accountNo = "0351234567"; // Thay số tài khoản của bạn vào đây
-            const addInfo = encodeURIComponent("CrazyToy Limited " + phone);
-            
+            const accountNo = "0351234567"; // Thay số tài khoản ngân hàng của bạn
+            const addInfo = encodeURIComponent("CrazyToy " + phone);
             const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${selectedPrice}&addInfo=${addInfo}`;
             
             document.getElementById('vietQrImg').src = qrUrl;
-            document.getElementById('qrInfo').innerText = `Chủ TK: NGUYỄN VĂN KHÔI | Số tiền: ${selectedPrice.toLocaleString('vi-VN')}đ`;
-            
+            document.getElementById('qrInfo').innerText = `Chủ TK: NGUYỄN VĂN KHÔI | Số tiền: ${totalText}`;
             document.getElementById('qrContainer').classList.remove('hidden');
             document.getElementById('qrContainer').scrollIntoView({ behavior: 'smooth' });
+
+            // 2. Gửi dữ liệu đơn hàng ngầm về Google Sheets của bạn
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzfM2_mN001OId76wvGk_woRWoWfkHPNzqDop2oTJcHD_IXvj5uRoe_4pwWlEHJZmIcJw/exec';
+            
+            const orderData = {
+                san_pham: product,
+                ho_ten: name,
+                so_dien_thoai: phone,
+                dia_chi: address,
+                ghi_chu: note,
+                tong_tien: totalText
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(() => {
+                console.log('Đã lưu đơn hàng vào Google Sheets thành công!');
+            })
+            .catch(error => console.error('Lỗi gửi đơn:', error));
         }
     </script>
 </body>
