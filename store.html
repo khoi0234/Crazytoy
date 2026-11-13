@@ -32,11 +32,10 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center p-4 sm:p{-6 relative overflow-x-hidden">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center p-4 sm:p-6 relative overflow-x-hidden">
 
     <!-- HEADER / LOGO THƯƠNG HIỆU & MẠNG XÃ HỘI -->
     <header class="w-full max-w-md flex flex-col items-center text-center space-y-3 mt-2">
-        <!-- Logo hiển thị từ file logo.png đã tải lên -->
         <div class="w-16 h-16 rounded-2xl glass-panel flex items-center justify-center overflow-hidden shadow-lg shadow-brand-gold/20 border border-brand-gold/40">
             <img src="logo.png" alt="Logo Crazy Toy" class="w-full h-full object-cover">
         </div>
@@ -56,7 +55,7 @@
             <a href="https://youtube.com/@crazytoy979?si=ou86a_KBlp9TLrPd" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
                 <i class="fa-brands fa-youtube text-sm"></i>
             </a>
-<a href="https://www.facebook.com/share/1UaK466EHG/" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
+            <a href="https://www.facebook.com/share/1UaK466EHG/" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
                 <i class="fa-brands fa-facebook text-sm"></i>
             </a>
             <a href="https://shopee.vn/" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-brand-gold hover:bg-brand-gold/20 transition">
@@ -66,7 +65,7 @@
     </header>
 
     <!-- NỘI DUNG CHÍNH -->
-    <main class="w-full max-w-md my-6 space-y-5">
+    <main class="w-full max-w-md my-6 space-y-6">
         
         <!-- THƯ CẢM ƠN -->
         <section class="glass-panel p-5 rounded-3xl space-y-2 border border-brand-gold/30 shadow-xl">
@@ -79,46 +78,77 @@
             </p>
         </section>
 
-        <!-- DANH MỤC SẢN PHẨM -->
+        <!-- ================= MỤC 1: SẢN PHẨM GIỚI HẠN ================= -->
         <section class="space-y-4">
-            <div class="flex items-center justify-between px-1">
+            <div class="flex items-center justify-between px-1 border-b border-brand-gold/20 pb-2">
                 <h2 class="text-sm font-bold text-brand-gold uppercase tracking-wider flex items-center space-x-2">
-                    <i class="fa-solid fa-fire mr-1"></i> Sản Phẩm Nổi Bật
+                    <i class="fa-solid fa-crown mr-1"></i> Sản Phẩm Giới Hạn (Limited)
                 </h2>
-                <span class="text-[10px] text-slate-400">Độc Bản 1/1</span>
+                <span class="text-[10px] bg-brand-gold/20 text-brand-gold px-2 py-0.5 rounded-full font-semibold">Độc Bản 1/1</span>
             </div>
 
-            <!-- Sản phẩm 1 -->
+            <!-- Sản phẩm giới hạn 1 -->
             <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
                 <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
+                    <!-- THAY LINK ẢNH VÀ TÊN SẢN PHẨM TẠI ĐÂY -->
                     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Rồng Thần Kim Giáp" class="w-full h-full object-cover">
                     <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
                         499.000đ
                     </div>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="font-bold text-white text-base">Rồng Thần Kim Giáp (1/1)</h3>
-                    <p class="text-xs text-slate-400">Mô hình rồng khớp động linh hoạt, phủ sơn metallic thủ công cao cấp.</p>
+                    <h3 class="font-bold text-white text-base">Rồng Thần Kim Giáp (Limited)</h3>
+                    <p class="text-xs text-slate-400">Phiên bản giới hạn, mô hình rồng khớp động mạ vàng thủ công.</p>
                 </div>
-                <button onclick="selectProduct('Rồng Thần Kim Giáp', 499000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                <button onclick="selectProduct('Rồng Thần Kim Giáp (Limited)', 499000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Đặt Mua Ngay</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= MỤC 2: SẢN PHẨM THƯỜNG ================= -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between px-1 border-b border-brand-gold/20 pb-2">
+                <h2 class="text-sm font-bold text-brand-gold uppercase tracking-wider flex items-center space-x-2">
+                    <i class="fa-solid fa-box-open mr-1"></i> Sản Phẩm Thường
+                </h2>
+                <span class="text-[10px] text-slate-400">Tiêu Chuẩn</span>
+            </div>
+
+            <!-- Sản phẩm thường 1 -->
+            <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
+                <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
+                    <!-- THAY LINK ẢNH VÀ TÊN SẢN PHẨM TẠI ĐÂY -->
+                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop" alt="Cyber Mecha Figurine" class="w-full h-full object-cover">
+                    <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
+                        250.000đ
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-bold text-white text-base">Cyber Mecha Warrior</h3>
+                    <p class="text-xs text-slate-400">Tượng robot chiến giáp tiêu chuẩn, chi tiết sắc nét.</p>
+                </div>
+                <button onclick="selectProduct('Cyber Mecha Warrior', 250000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Đặt Mua Ngay</span>
                 </button>
             </div>
 
-            <!-- Sản phẩm 2 -->
+            <!-- Sản phẩm thường 2 -->
             <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
                 <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
-                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop" alt="Cyber Mecha Figurine" class="w-full h-full object-cover">
+                    <!-- THAY LINK ẢNH VÀ TÊN SẢN PHẨM TẠI ĐÂY -->
+                    <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1000&auto=format&fit=crop" alt="Mini Toy Art" class="w-full h-full object-cover">
                     <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
-                        650.000đ
+                        180.000đ
                     </div>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="font-bold text-white text-base">Cyber Mecha Warrior</h3>
-                    <p class="text-xs text-slate-400">Tượng robot chiến giáp tương lai, chi tiết sắc nét từng lớp in.</p>
+                    <h3 class="font-bold text-white text-base">Mini Art Toy Decor</h3>
+                    <p class="text-xs text-slate-400">Mô hình trang trí bàn làm việc nhỏ gọn, cá tính.</p>
                 </div>
-                <button onclick="selectProduct('Cyber Mecha Warrior', 650000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                <button onclick="selectProduct('Mini Art Toy Decor', 180000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span>Đặt Mua Ngay</span>
                 </button>
@@ -178,7 +208,6 @@
                     Quét mã QR bên dưới bằng app ngân hàng để thanh toán đơn hàng:
                 </div>
                 <div class="inline-block p-2 bg-white rounded-2xl shadow-xl">
-                    <!-- VietQR giả lập tự động nạp tiền (Thay STK của anh vào đây nếu muốn) -->
                     <img id="vietQrImg" src="" alt="VietQR Thanh Toán" class="w-48 h-48 mx-auto rounded-lg">
                 </div>
                 <p id="qrInfo" class="text-[11px] text-slate-300 font-mono"></p>
@@ -214,15 +243,11 @@
                 return;
             }
 
-            const name = document.getElementById('customerName').value;
             const phone = document.getElementById('customerPhone').value;
-            const product = document.getElementById('productName').value;
 
-            // Tạo mã VietQR động qua dịch vụ VietQR API công khai
-            // Cú pháp: https://img.vietqr.io/image/MB-0351234567-compact2.png?amount=GIA_TIEN&addInfo=NOI_DUNG
-            // Anh có thể thay mã ngân hàng (MB) và số tài khoản của anh vào đây sau.
+            // Cấu hình mã ngân hàng và số tài khoản nhận tiền của bạn
             const bankId = "MB"; 
-            const accountNo = "0351234567"; // Thay số tài khoản của anh vào đây
+            const accountNo = "0351234567"; // Thay số tài khoản của bạn vào đây
             const addInfo = encodeURIComponent("CrazyToy " + phone);
             
             const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${selectedPrice}&addInfo=${addInfo}`;
