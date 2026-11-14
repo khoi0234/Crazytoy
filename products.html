@@ -52,4 +52,247 @@
         <!-- Sản phẩm thường 1 -->
         <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
             <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
-                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop" alt="Robot Mecha 01" class="w-full h-full object
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop" alt="Robot Mecha 01" class="w-full h-full object-cover">
+                <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
+                    250.000đ
+                </div>
+                <div class="absolute bottom-2 left-2 bg-emerald-600/90 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                    📦 Còn lại: 15 sản phẩm
+                </div>
+            </div>
+            <div class="space-y-1">
+                <h3 class="font-bold text-white text-base">Robot Mecha Chiến Binh</h3>
+                <p class="text-xs text-slate-400">Mô hình in 3D lắp ráp chi tiết cao, sơn thủ công sắc nét.</p>
+            </div>
+            <button onclick="selectProduct('Robot Mecha Chiến Binh', 250000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Đặt Mua Ngay</span>
+            </button>
+        </div>
+
+        <!-- Sản phẩm thường 2 -->
+        <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
+            <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
+                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1000&auto=format&fit=crop" alt="Kiếm Khổng Lồ" class="w-full h-full object-cover">
+                <div class="absolute top-2 right-2 bg-slate-900/90 px-2.5 py-1 rounded-lg text-xs font-bold text-brand-gold border border-brand-gold/30">
+                    180.000đ
+                </div>
+                <div class="absolute bottom-2 left-2 bg-emerald-600/90 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-wider">
+                    📦 Còn lại: 8 sản phẩm
+                </div>
+            </div>
+            <div class="space-y-1">
+                <h3 class="font-bold text-white text-base">Kiếm Ánh Sáng Fantasy</h3>
+                <p class="text-xs text-slate-400">Đạo cụ cosplay in 3D nhẹ, bền, thiết kế hầm hố.</p>
+            </div>
+            <button onclick="selectProduct('Kiếm Ánh Sáng Fantasy', 180000)" class="w-full py-2.5 rounded-xl bg-brand-gold text-slate-950 font-bold text-xs hover:bg-amber-400 transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Đặt Mua Ngay</span>
+            </button>
+        </div>
+
+        <!-- FORM ĐẶT HÀNG & THANH TOÁN -->
+        <section id="orderSection" class="glass-panel p-5 rounded-3xl space-y-4 border border-brand-gold/40 shadow-2xl">
+            <div class="flex items-center space-x-2 text-brand-gold font-bold text-xs uppercase tracking-wider">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span>Form Đặt Hàng & Thanh Toán</span>
+            </div>
+
+            <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-3">
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Sản Phẩm Đã Chọn:</label>
+                    <input type="text" id="productName" value="Chưa chọn sản phẩm" readonly class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-brand-gold font-bold">
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">Họ và Tên:</label>
+                        <input type="text" id="customerName" required placeholder="Họ tên của bạn" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-slate-300 mb-1">Số Điện Thoại:</label>
+                        <input type="tel" id="customerPhone" required placeholder="Số điện thoại" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Địa Chỉ Nhận Hàng:</label>
+                    <textarea id="customerAddress" required rows="2" placeholder="Số nhà, tên đường, phường/xã..." class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none resize-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Hình Thức Thanh Toán:</label>
+                    <select id="paymentMethod" onchange="updatePaymentOption()" class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                        <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+                        <option value="DatCoc">Đặt cọc trước (Giữ chỗ sản phẩm)</option>
+                        <option value="Prepaid100">Thanh toán trước 100% (Miễn phí ship)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 mb-1">Ghi Chú:</label>
+                    <input type="text" id="customerNote" placeholder="Ví dụ: Giao giờ hành chính..." class="w-full px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-white focus:border-brand-gold outline-none">
+                </div>
+
+                <div class="p-3 rounded-2xl bg-slate-900/80 border border-brand-gold/30 space-y-1">
+                    <div class="flex justify-between items-center text-xs text-slate-300">
+                        <span>Giá sản phẩm:</span>
+                        <span id="productPriceText">0đ</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-300">
+                        <span>Phí vận chuyển:</span>
+                        <span id="shippingFeeText">30.000đ</span>
+                    </div>
+                    <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs font-bold text-brand-gold" id="totalLabel">Tổng thanh toán:</span>
+                        <span id="totalPrice" class="text-base font-black text-brand-gold">0đ</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span id="submitBtnText">Xác Nhận Đặt Hàng (COD)</span>
+                </button>
+            </form>
+
+            <div id="qrContainer" class="hidden pt-3 border-t border-slate-700 text-center space-y-3">
+                <div id="qrHeaderMsg" class="p-2 bg-brand-gold/15 rounded-xl border border-brand-gold/30 text-xs text-brand-gold font-semibold">
+                    Quét mã QR chuyển khoản:
+                </div>
+                <div class="inline-block p-2 bg-white rounded-2xl shadow-xl">
+                    <img id="vietQrImg" src="" alt="VietQR" class="w-48 h-48 mx-auto rounded-lg">
+                </div>
+                <p id="qrInfo" class="text-[11px] text-slate-300 font-mono"></p>
+                <div class="text-[10px] text-emerald-400 font-bold">
+                    <i class="fa-solid fa-circle-check"></i> Đã lưu đơn hàng vào Google Sheets tự động!
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full max-w-md text-center py-4 text-[10px] text-slate-500">
+        &copy; 2026 Crazy Toy Vietnam. All rights reserved.
+    </footer>
+
+    <!-- SCRIPT XỬ LÝ THANH TOÁN VÀ GOOGLE SHEETS -->
+    <script>
+        let basePrice = 0;
+        let shippingFee = 30000;
+
+        function selectProduct(name, price) {
+            document.getElementById('productName').value = name;
+            basePrice = price;
+            calculateTotal();
+            document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updatePaymentOption() {
+            calculateTotal();
+            const method = document.getElementById('paymentMethod').value;
+            const btnText = document.getElementById('submitBtnText');
+            if (method === 'COD') {
+                btnText.innerText = "Xác Nhận Đặt Hàng (COD)";
+            } else if (method === 'DatCoc') {
+                btnText.innerText = "Xác Nhận Đặt Cọc (Hiện Mã QR)";
+            } else {
+                btnText.innerText = "Thanh Toán 100% - Miễn Ship (Hiện Mã QR)";
+            }
+        }
+
+        function calculateTotal() {
+            if (basePrice === 0) return;
+            const method = document.getElementById('paymentMethod').value;
+            let ship = 30000;
+            let finalAmount = basePrice + ship;
+            
+            if (method === 'Prepaid100') {
+                ship = 0; // Miễn phí ship
+                finalAmount = basePrice;
+                document.getElementById('shippingFeeText').innerHTML = '<span class="text-emerald-400 font-bold">0đ (Miễn phí ship)</span>';
+            } else if (method === 'DatCoc') {
+                ship = 30000;
+                finalAmount = 50000; // Tiền cọc giữ chỗ cố định 50k
+                document.getElementById('shippingFeeText').innerText = ship.toLocaleString('vi-VN') + 'đ (Thanh toán khi nhận phần còn lại)';
+            } else {
+                document.getElementById('shippingFeeText').innerText = ship.toLocaleString('vi-VN') + 'đ';
+            }
+
+            document.getElementById('productPriceText').innerText = basePrice.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('totalPrice').innerText = finalAmount.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            if (basePrice === 0) {
+                alert('Vui lòng chọn một sản phẩm ở bên trên trước khi đặt hàng!');
+                return;
+            }
+
+            const product = document.getElementById('productName').value;
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+            const note = document.getElementById('customerNote').value;
+            const method = document.getElementById('paymentMethod').value;
+            
+            let payAmount = basePrice + shippingFee;
+            let payLabel = "COD";
+            let statusText = "Chờ giao hàng (COD)";
+
+            if (method === 'Prepaid100') {
+                payAmount = basePrice;
+                payLabel = "Chuyển khoản 100% (Miễn ship)";
+                statusText = "Đã thanh toán 100%";
+            } else if (method === 'DatCoc') {
+                payAmount = 50000; 
+                payLabel = "Đặt cọc trước 50k";
+                statusText = "Đã đặt cọc giữ chỗ";
+            }
+
+            const totalText = payAmount.toLocaleString('vi-VN') + 'đ (' + payLabel + ')';
+
+            const qrContainer = document.getElementById('qrContainer');
+            if (method === 'COD') {
+                qrContainer.classList.add('hidden');
+                alert('Đặt hàng thành công! Đơn hàng COD của bạn đã được ghi nhận vào hệ thống.');
+            } else {
+                const bankId = "MB"; 
+                const accountNo = "0351234567"; // Số tài khoản ngân hàng của bạn
+                const addInfo = encodeURIComponent("CrazyToy " + phone);
+                const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${payAmount}&addInfo=${addInfo}`;
+                
+                document.getElementById('vietQrImg').src = qrUrl;
+                document.getElementById('qrInfo').innerText = `Chủ TK: NGUYỄN VĂN KHÔI | Số tiền: ${payAmount.toLocaleString('vi-VN')}đ`;
+                qrContainer.classList.remove('hidden');
+                qrContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Gửi dữ liệu về Google Sheets thông qua Web App URL của bạn
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzfM2_mN001OId76wvGk_woRWoWfkHPNzqDop2oTJcHD_IXvj5uRoe_4pwWlEHJZmIcJw/exec';
+            
+            const orderData = {
+                san_pham: product + " [" + payLabel + "]",
+                ho_ten: name,
+                so_dien_thoai: phone,
+                dia_chi: address,
+                ghi_chu: note,
+                tong_tien: totalText
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            })
+            .then(() => {
+                console.log('Đã lưu đơn hàng vào Google Sheets thành công!');
+            })
+            .catch(error => console.error('Lỗi gửi đơn:', error));
+        }
+    </script>
+</body>
+</html>
