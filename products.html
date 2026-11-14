@@ -1,1 +1,55 @@
-a
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm Thường - Crazy Toy</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#f59e0b',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center p-4 sm:p-6 relative overflow-x-hidden">
+
+    <!-- HEADER / NÚT VỀ TRANG CHỦ -->
+    <header class="w-full max-w-md flex items-center justify-between mt-2 mb-4">
+        <a href="store.html" class="px-3 py-2 rounded-xl glass-panel text-brand-gold font-bold text-xs flex items-center space-x-1.5 hover:bg-brand-gold/20 transition">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Về Trang Chủ</span>
+        </a>
+        <div class="text-right">
+            <h1 class="text-sm font-black tracking-wider text-brand-gold uppercase">SẢN PHẨM THƯỜNG</h1>
+            <span class="text-[10px] bg-emerald-600/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold border border-emerald-500/30">Hàng Sẵn Sàng</span>
+        </div>
+    </header>
+
+    <!-- NỘI DUNG DANH SÁCH SẢN PHẨM THƯỜNG -->
+    <main class="w-full max-w-md space-y-6">
+        
+        <!-- Sản phẩm thường 1 -->
+        <div class="glass-panel p-4 rounded-3xl space-y-3 shadow-lg">
+            <div class="w-full h-44 rounded-2xl overflow-hidden relative border border-slate-700">
+                <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1000&auto=format&fit=crop" alt="Robot Mecha 01" class="w-full h-full object
